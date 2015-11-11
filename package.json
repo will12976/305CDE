@@ -1,0 +1,23 @@
+{
+  "name": "geolocator",
+  "version": "1.0.0",
+  "description": "Maps API",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/will12976/305CDE.git"
+  },
+  "keywords": [
+    "maps",
+    "api"
+  ],
+  "author": "William Fletcher",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/will12976/305CDE/issues"
+  },
+  "homepage": "https://github.com/will12976/305CDE#readme"
+}
