@@ -19,5 +19,10 @@
   "bugs": {
     "url": "https://github.com/will12976/305CDE/issues"
   },
-  "homepage": "https://github.com/will12976/305CDE#readme"
+  "homepage": "https://github.com/will12976/305CDE#readme",
+  "dependencies": {
+    "mongoose": "^4.2.5",
+    "request": "^2.65.0",
+    "restify": "^4.0.3"
+  }
 }

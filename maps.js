@@ -11,10 +11,11 @@ exports.search = function(query, callback) {
         callback({code: 400, response:{status:'error', message:'missing query - enter correct parameters', message1: 'Try entering a postcode'}})
     }
     const url = 'https://maps.googleapis.com/maps/api/geocode/json'
-    const query_string = {q: query, fields: 'results(address_components)'}
-    request.get({url:url, qs: query_string, function(err, res, body){
+    const query_string = {address: query}
+    console.log(query_string);
+    return request.get({url:url, qs: query_string}, function(err, res, body){
         if(err){
-            callback({code:500, response:{status:'error', message: "Sorry, I am not receiving data at the moment"}})
+            callback({code:500, response:{status:'error', message: "Sorry, I am not receiving data at the moment", data:err}})
         }
         console.log(typeof body)
         const json = JSON.parse(body)
@@ -25,5 +26,5 @@ exports.search = function(query, callback) {
         console.log(maps)
         callback({code:200, response:{status:'success', message: 'region found', data:maps}})
     }
-    })
+    )
 }
