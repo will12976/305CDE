@@ -8,7 +8,7 @@ exports.search = function(query, callback) {
     
     console.log("Searching, won't take long!")
     if(typeof query !== 'string' || query.length === 0){
-        callback({code: 400, response:{status:'error', message:'missing query - enter correct parameters'}})
+        callback({code: 400, response:{status:'error', message:'missing query - enter correct parameters', message1: 'Try entering a postcode'}})
     }
     const url = 'https://maps.googleapis.com/maps/api/geocode/json'
     const query_string = {q: query, fields: 'results(address_components(long_name))'}
@@ -18,7 +18,7 @@ exports.search = function(query, callback) {
         }
         console.log(typeof body)
         const json = JSON.parse(body)
-        const mapObject = json.items
+        const items = json.items
         const maps = items.map(function(element){
             return {address_components: element.address_components, long_name: element.address_components.long_name}
         })
