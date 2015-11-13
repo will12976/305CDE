@@ -10,21 +10,21 @@ exports.search = function(query, callback) {
     if(typeof query !== 'string' || query.length === 0){
         callback({code: 400, response:{status:'error', message:'missing query - enter correct parameters', message1: 'Try entering a postcode'}})
     }
-    const url = 'https://maps.googleapis.com/maps/api/geocode/json'
-    const query_string = {address: query}
+    const url = 'http://www.myapifilms.com/imdb'
+    const query_string = {title: query}
     console.log(query_string);
-    return request.get({url:url, qs: query_string}, function(err, res, body){
+    request.get({url:url, qs: query_string}, function(err, res, body){
         if(err){
             callback({code:500, response:{status:'error', message: "Sorry, I am not receiving data at the moment", data:err}})
         }
         console.log(typeof body)
         const json = JSON.parse(body)
         const items = json.items
-        const maps = items.map(function(element){
-            return {address_components: element.address_components}
+        console.log(json)
+        const books = json.map(function(element) {
+            return {'Title': element.title,'Year of Release':element.year, 'Directed by': element.directors, 'Rated':element.rated, 'Run Time': element.runtime, 'Description': element.simplePlot}
         })
-        console.log(maps)
-        callback({code:200, response:{status:'success', message: 'region found', data:maps}})
+        callback({code:200, response:{status:'success', message: 'Found the Film!', data:books}})
     }
     )
 }

@@ -18,8 +18,8 @@ server.get('/', function(req, res, next) { //Incase the user doesn't retrieve vi
 
 server.get('/maps', function (req, res){ //Start of getting a request back from GET, and whether it is sucessful or not
   console.log('GET /maps')
-  const searchPlace = req.query.q
-  console.log('address='+searchPlace)
+  const searchPlace = req.query.title
+  console.log('film='+searchPlace)
   maps.search(searchPlace, function(data){
     console.log(data)
     res.setHeader('content-type', 'application/json') // The results that come back, will return as JSON text
