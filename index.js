@@ -12,6 +12,10 @@ server.use(restify.authorizationParser())
 var maps = require('./maps.js') //Links to the maps.js module
 var accounts = require('./accounts.js')
 
+server.get('/', function(req, res, next) { //Incase the user doesn't retrieve via /maps, it will redirect
+  res.redirect('/maps', next)
+})
+
 server.get('/maps', function (req, res){ //Start of getting a request back from GET, and whether it is sucessful or not
   console.log('GET /maps')
   const searchPlace = req.query.q
