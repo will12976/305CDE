@@ -20,11 +20,12 @@ exports.search = function(query, callback) {
         console.log(typeof body)
         const json = JSON.parse(body)
         const items = json.items
-        console.log(json)
-        const books = json.map(function(element) {
-            return {'Title': element.title,'Year of Release':element.year, 'Directed by': element.directors, 'Rated':element.rated, 'Run Time': element.runtime, 'Description': element.simplePlot}
+        const film = json.map(function(element) {
+            return {'Title': element.title,'Year of Release':element.year, 'Genre':element.genres, 'Directed by': element.directors, 'Rated':element.rated, 'Run Time': element.runtime, 'Description': element.plot}
         })
-        callback({code:200, response:{status:'success', message: 'Found the Film!', data:books}})
+        
+        console.log(film)
+        callback({code:200, response:{status:'success', message: 'Found the Film! '+query, data:film}})
     }
     )
 }

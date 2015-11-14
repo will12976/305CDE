@@ -9,18 +9,18 @@ server.use(restify.queryParser())
 server.use(restify.bodyParser())
 server.use(restify.authorizationParser())
 
-var maps = require('./maps.js') //Links to the maps.js module
+var films = require('./films.js') //Links to the maps.js module
 var accounts = require('./accounts.js')
 
 server.get('/', function(req, res, next) { //Incase the user doesn't retrieve via /maps, it will redirect
-  res.redirect('/maps', next)
+  res.redirect('/films', next)
 })
 
-server.get('/maps', function (req, res){ //Start of getting a request back from GET, and whether it is sucessful or not
-  console.log('GET /maps')
+server.get('/films', function (req, res){ //Start of getting a request back from GET, and whether it is sucessful or not
+  console.log('GET /films')
   const searchPlace = req.query.title
-  console.log('film='+searchPlace)
-  maps.search(searchPlace, function(data){
+  console.log('films='+searchPlace)
+  films.search(searchPlace, function(data){
     console.log(data)
     res.setHeader('content-type', 'application/json') // The results that come back, will return as JSON text
     res.send(data.code, data.response);
