@@ -1,6 +1,7 @@
 //Geocoding via Google Maps API http://maps.googleapis.com/maps/api/geocode/output?parameters
 var request = require('request')
 
+
 //https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&sensor=false
 //This link above avoids having to use a API Code
 
@@ -19,7 +20,6 @@ exports.search = function(query, callback) {
         }
         console.log(typeof body)
         const json = JSON.parse(body)
-        const items = json.items
         const film = json.map(function(element) {
             return {'Title': element.title,'Year of Release':element.year, 'Genre':element.genres, 'Directors': element.directors, 'Rated':element.rated, 'Run Time': element.runtime, 'Description': element.plot}
         })
@@ -29,3 +29,4 @@ exports.search = function(query, callback) {
     }
     )
 }
+    

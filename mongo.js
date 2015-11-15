@@ -24,16 +24,7 @@ const List = mongoose.model('List', listSchema)
 
 /* notice we are using the 'arrow function' syntax. In this example there are more than one parameter so they need to be enclosed in brackets. */
 exports.addList = function(data, callback) {
-  console.log('addList')
-  /* here we extract the data from the supplied string. This would be more concise if NodeJS supported the 'destructuring assignment'. */
-  const step1 = data.split(':')
-  console.log(step1)
-  const name = step1[0]
-  /* here we use the 'map' function to loop through the array and apply the trim() function. There are several useful functions that are part of the 'array prototype' such as map(), filter(), reduce(). */
-  const items = step1[1].split(',').map(function(item) {
-    return item.trim()
-  })
-  /* now we have extracted the data we can use it to create a new 'List' object that adopts the correct schema. */
+//Extracted the data we can use it to create a new 'List' object that adopts the correct schema. */
   const newList = new List({ name: name, items: items })
   newList.save( function(err, data) {
     if (err) {
@@ -64,15 +55,5 @@ exports.getById = function(id, callback) {
       callback('error: '+err)
     }
     callback(data)
-  })
-}
-
-exports.clear = function(callback) {
-  /* the 'remove()' function removes any document matching the supplied criteria. */
-  List.remove({}, function(err)  {
-    if (err) {
-      callback('error: '+err)
-    }
-    callback('lists removed')
   })
 }
