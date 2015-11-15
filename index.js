@@ -30,20 +30,25 @@ stdin.on('data', function(chunk) {
 server.get('/', function(req, res, next) { //Incase the user doesn't retrieve via /maps, it will redirect
   res.redirect('/films', next)
 })
+//data is the callback
 
 server.get('/films', function (req, res){ //Start of getting a request back from GET, and whether it is sucessful or not
+  console.log('/////////////////////////// NEW SEARCH /////////////////////////////////')
   console.log('GET /films')
   const searchPlace = req.query.title
   console.log('films='+searchPlace)
   films.search(searchPlace, function(data){
-    console.log(data);
-    mongo.addList(function(data){
-      console.log('This is working!')
+    console.log(data)
+    console.log('///////////////////////////////////////////////////////////////////////////////')
+    console.log(data.response.data)
+    const hold = data.response.data//This is the JSON data of the film 
+    mongo.addList(hold, function(data) {
+      console.log(data)
     })
     res.setHeader('content-type', 'application/json') // The results that come back, will return as JSON text
-    res.send(data.code, data.response, data.film);
+    res.send(data.code, data.response);
     res.end();
-
+    
   })
 });
 

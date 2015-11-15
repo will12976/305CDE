@@ -13,10 +13,7 @@ const db = mongoose.connection
 
 /* all documents in a 'collection' must adhere to a defined 'schema'. Here we define a new schema that includes a mandatory string and an array of strings. */
 const listSchema = new mongoose.Schema({
-    name: { type: String, required: true},
-    items: [ {type: String} ],
-    description: { type: String }
-
+    title: { type: Array, required: true }
 })
 /* the schema is associated with the 'List' collection which means it will be applied to all documents added to the collection. */
 const List = mongoose.model('List', listSchema)
@@ -25,13 +22,27 @@ const List = mongoose.model('List', listSchema)
 /* notice we are using the 'arrow function' syntax. In this example there are more than one parameter so they need to be enclosed in brackets. */
 exports.addList = function(data, callback) {
 //Extracted the data we can use it to create a new 'List' object that adopts the correct schema. */
-  const newList = new List({ name: name, items: items })
-  newList.save( function(err, data) {
-    if (err) {
-      callback('error: '+err)
-    }
-    callback('added: '+data)
+
+    //I have moved the data received to the mongo.js file. But I don't know how I can add this.
+    //The variable data contains the third-party data I asked for. But I need to split this up and spread it. 
+    console.log(data)
+    const mapData = data[0];
+    console.log
+    const newList = new List({title: mapData})
+    newList.save( function(err, data) {
+      if (err) {
+        callback('error: '+err)
+      }
+      callback('added: '+data)
+    
   })
+  
+  //newList.save( function(err, data) {
+    //if (err) {
+    //  callback('error: '+err)
+    //}
+    //callback('added: '+data)
+  //})
 }
 
 exports.getAll = function(callback) {
@@ -41,7 +52,7 @@ exports.getAll = function(callback) {
       callback('error: '+err)
     }
     const list = data.map( function(item){
-      return {id: item._id, name: item.name}
+      return {data}
     })
     callback(list)
   })
