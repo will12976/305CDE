@@ -25,10 +25,8 @@ exports.addList = function(data, callback) {
 
     //I have moved the data received to the mongo.js file. But I don't know how I can add this.
     //The variable data contains the third-party data I asked for. But I need to split this up and spread it. 
-    console.log(data)
-    const mapData = data[0];
-    console.log
-    const newList = new List({title: mapData})
+    const title = data[0];
+    const newList = new List({title})
     newList.save( function(err, data) {
       if (err) {
         callback('error: '+err)

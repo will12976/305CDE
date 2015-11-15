@@ -33,22 +33,21 @@ server.get('/', function(req, res, next) { //Incase the user doesn't retrieve vi
 //data is the callback
 
 server.get('/films', function (req, res){ //Start of getting a request back from GET, and whether it is sucessful or not
-  console.log('/////////////////////////// NEW SEARCH /////////////////////////////////')
+  console.log('///////////////////////// NEW SEARCH ////////////////////////////////////////')
   console.log('GET /films')
   const searchPlace = req.query.title
   console.log('films='+searchPlace)
   films.search(searchPlace, function(data){
-    console.log(data)
-    console.log('///////////////////////////////////////////////////////////////////////////////')
-    console.log(data.response.data)
+    console.log('/////////////////////////////////////////////////////////////////////////////')
     const hold = data.response.data//This is the JSON data of the film 
     mongo.addList(hold, function(data) {
-      console.log(data)
+      console.log('added '+data)
+      console.log('Movie Details stored in Database')
+      console.log('//////////////////////// END OF SEARCH //////////////////////////////////////')
     })
     res.setHeader('content-type', 'application/json') // The results that come back, will return as JSON text
     res.send(data.code, data.response);
     res.end();
-    
   })
 });
 
