@@ -13,7 +13,8 @@ const db = mongoose.connection
 
 /* all documents in a 'collection' must adhere to a defined 'schema'. Here we define a new schema that includes a mandatory string and an array of strings. */
 const listSchema = new mongoose.Schema({
-    title: { type: Array, required: true }
+    title: { type: Array, required: true } //The type of data is an Array.
+    //In the schema, it is a requirement that title is an Array, if not it will return an error as callback
 })
 /* the schema is associated with the 'List' collection which means it will be applied to all documents added to the collection. */
 const List = mongoose.model('List', listSchema)
@@ -23,9 +24,9 @@ const List = mongoose.model('List', listSchema)
 exports.addList = function(data, callback) {
 //Extracted the data we can use it to create a new 'List' object that adopts the correct schema. */
 
-    //I have moved the data received to the mongo.js file. But I don't know how I can add this.
-    //The variable data contains the third-party data I asked for. But I need to split this up and spread it. 
-    const title = data[0];
+    //I have moved the data that I want into this module. 
+    //Since this data is an array, I need to find a way of having a variable with this data so I can manipulate it
+    const title = data[0]; //Since there is only one index in this Array, I equalled it to the first index number
     const newList = new List({title})
     newList.save( function(err, data) {
       if (err) {
@@ -59,10 +60,19 @@ exports.getAll = function(callback) {
 
 exports.getById = function(id, callback) {
   /* the 'find' property function can take a second 'filter' parameter. */
-  List.find({_id: id}, function(err, data) {
+  List.find({_id: id}, function(err, data) { //This finds the section containing _id
     if (err) {
       callback('error: '+err)
     }
     callback(data)
+  })
+}
+exports.clear = function(callback) {
+  /* the 'remove()' function removes any document matching the supplied criteria. */
+  List.remove({}, function(err)  {
+    if (err) {
+      callback('error: '+err)
+    }
+    callback('lists removed')
   })
 }

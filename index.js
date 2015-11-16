@@ -10,7 +10,7 @@ server.use(restify.bodyParser())
 server.use(restify.authorizationParser())
 
 var films = require('./films.js') //Links to the maps.js module
-var accounts = require('./accounts.js')
+// var accounts = require('./accounts.js')
 var mongo = require('./mongo.js')
 
 
@@ -20,8 +20,24 @@ stdin.on('data', function(chunk) {
   console.log(typeof chunk)
   var text = chunk.toString().trim()
   console.log(typeof text)
+  //Typing list into node.js retrieves all of the data from mongo.db and displays it in the terminal.
   if (text.indexOf('list') === 0) {
     mongo.getAll( function(data){
+        console.log(data)
+    })
+  }
+  //Typing get 5649ce08d7da945978bc5674, this retrieves the film data with that certain ID.
+  if (text.indexOf('get ') === 0) {
+    var space = text.indexOf(' ')
+    var item = text.substring(space+1).trim()
+    console.log('finding: ID "'+item+'"')
+    mongo.getById(item, function(data) {
+        console.log(data)
+    })
+  }
+  //Typing clear into node.js clears the whole list, so then typing list will give a blank array
+  if (text.indexOf('clear') === 0) {
+    mongo.clear( function(data) {
         console.log(data)
     })
   }
