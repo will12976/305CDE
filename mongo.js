@@ -36,12 +36,6 @@ exports.addList = function(data, callback) {
     
   })
   
-  //newList.save( function(err, data) {
-    //if (err) {
-    //  callback('error: '+err)
-    //}
-    //callback('added: '+data)
-  //})
 }
 
 exports.getAll = function(callback) {

@@ -12,6 +12,7 @@ server.use(restify.authorizationParser())
 var films = require('./films.js') //Links to the maps.js module
 // var accounts = require('./accounts.js')
 var mongo = require('./mongo.js')
+var maps = require('./maps.js')
 
 
 const stdin = process.openStdin()
@@ -51,14 +52,33 @@ server.get('/', function(req, res, next) { //Incase the user doesn't retrieve vi
 server.get('/films', function (req, res){ //Start of getting a request back from GET, and whether it is sucessful or not
   console.log('///////////////////////// NEW SEARCH ////////////////////////////////////////')
   console.log('GET /films')
-  const searchPlace = req.query.title
-  console.log('films='+searchPlace)
-  films.search(searchPlace, function(data){
+  const searchFilm = req.query.title
+  console.log('films='+searchFilm)
+  films.search(searchFilm, function(data){
     console.log('/////////////////////////////////////////////////////////////////////////////')
     const hold = data.response.data//This is the JSON data of the film 
     mongo.addList(hold, function(data) {
       console.log('added '+data)
       console.log('Movie Details stored in Database')
+      console.log('//////////////////////// END OF SEARCH //////////////////////////////////////')
+    })
+    res.setHeader('content-type', 'application/json') // The results that come back, will return as JSON text
+    res.send(data.code, data.response);
+    res.end();
+  })
+});
+
+server.get('/maps', function (req, res){ //Start of getting a request back from GET, and whether it is sucessful or not
+  console.log('///////////////////////// NEW SEARCH ////////////////////////////////////////')
+  console.log('GET /maps')
+  const searchPlace = req.query.address
+  console.log('address='+searchPlace)
+  maps.search(searchPlace, function(data){
+    console.log('/////////////////////////////////////////////////////////////////////////////')
+    const hold = data.response.data//This is the JSON data of the film 
+    mongo.addList(hold, function(data) {
+      console.log('added '+data)
+      console.log('Address Details stored in Database')
       console.log('//////////////////////// END OF SEARCH //////////////////////////////////////')
     })
     res.setHeader('content-type', 'application/json') // The results that come back, will return as JSON text
