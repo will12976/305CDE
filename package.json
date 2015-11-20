@@ -1,16 +1,27 @@
 {
-  "name": "geolocator",
+  "name": "api",
   "version": "1.0.0",
-  "description": "Maps API",
+  "description": "Films and Maps API",
   "main": "index.js",
+  "dependencies": {
+    "istanbul": "^0.4.0",
+    "jasmine-node": "^1.14.5",
+    "jasmine": "^2.3.2",
+    "mongoose": "^4.2.5",
+    "request": "^2.65.0",
+    "restify": "^4.0.3"
+  },
+  "devDependencies": {},
   "scripts": {
-    "test": "node index.js"
+    "test": "jasmine-node spec --color --verbose --autotest --watch ."
+    "coverage": "istanbul cover -x **spec/** -x **index.js** --include-all-sources jasmine-node spec"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/will12976/305CDE.git"
   },
   "keywords": [
+    "films",
     "maps",
     "api"
   ],
@@ -19,10 +30,5 @@
   "bugs": {
     "url": "https://github.com/will12976/305CDE/issues"
   },
-  "homepage": "https://github.com/will12976/305CDE#readme",
-  "dependencies": {
-    "mongoose": "^4.2.5",
-    "request": "^2.65.0",
-    "restify": "^4.0.3"
-  }
+  "homepage": "https://github.com/will12976/305CDE#readme"
 }

@@ -24,7 +24,7 @@ exports.search = function(query, callback) {
             return {'Address': element.formatted_address, 'Location Type': element.geometry.location_type,'Location': element.geometry.location, 'Place ID':element.place_id}
         })
         console.log(map)
-        callback({code:200, response:{status:'success', message: 'Found the Film! '+query, data:map}})
+        callback({code:200, response:{status:'success', message: 'Found the Address! '+query, data:map}})
     }
     )
 }

@@ -1,6 +1,4 @@
-//Geocoding via Google Maps API http://maps.googleapis.com/maps/api/geocode/output?parameters
 var request = require('request')
-
 
 //http://www.myapifilms.com/imdb?title=Jaws
 //This link above avoids having to use a API Code
