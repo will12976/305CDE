@@ -29,20 +29,37 @@ describe("Checking whether my database methods are working correctly", function(
   //My third test then requests from my third-party api, taking only the year data from Jaws
   //Then uses the addList method from mongo.js, to test if it has been added to the database.
   it("should add my /GET request to MongoDB and checks if something has been added", function(done){
+    
     request.get(url, function(error, response, body){
       var conversion = JSON.parse(body)
-      var film = conversion.map(function (element){
-        return {'Year': element.year}
+      mongo.addList(conversion, function(data){
       })
-      mongo.addList(film, function(data){
-      })
+      console.log(conversion) //Checking whether the data returns 
+      
       //Adding data into the database will have its own unique ID, so there is no way of testing the whole output. 
       //Since in the previous tests that the lists are cleared successfully, I will test if it isn't an empty string
       //If not, then I know that something has been added.
+      
       mongo.getAll(function (result){
         expect(result).not.toEqual([])
         done();
+        
       })
     })
   })
+  
+  it("should return data back from the database, based on the ID given.", function(done){
+    mongo.clear();
+    request.get(url, function(error, response, body) {
+      var conversion = JSON.parse(body)
+      mongo.addList(conversion, function(data){
+      })
+      console.log(conversion)
+      !!!  mongo.getById()  !!!
+      //I need to find a way of taking the _id parameter of the input and use that as my getById parameter.
+      //Test this during the lab, the console.log() should show the data including the _id, ask Mark on Wednesday about how I can do this. 
+      
+    })
+  })
 });
+

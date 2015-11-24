@@ -1,7 +1,19 @@
 var request = require('request');
-
+var mongo = require('../mongo.js')
 var url = 'http://www.myapifilms.com/imdb?title=Jaws'
 
+//SETUP
+describe("Clears the list from other tests", function(){
+  it("should have no elements in the list before testing", function(done){
+    
+    mongo.clear(function(result){
+      
+      expect(result).toEqual('lists removed')
+      done();
+      
+    });
+  })
+})
 //PASS TESTING
 
 // First describe goes through the tests that works - achieves what it is asking.
@@ -31,6 +43,22 @@ describe("Using /GET to retrieve data from a third-party API", function() {
       done(); // If the test passes, it runs the done method
     })
     
+  })
+  
+  it("should store the returned data into MongoDB", function(done){
+    request.get(url, function(error, response, body){
+      var conversion = JSON.parse(body)
+      var film = conversion.map(function(element){
+        return {'Year': element.year}
+      })
+      //Since I can't look up the ID's as they're all unique, I am checking if the data that I have passed onto the database
+      //isn't just returning back, so you will know that something has occurred. 
+      //I might know this on Wednesday, this links to the problem from mongo-spec.js
+      mongo.addList(film, function(data){
+        expect(data).not.toBe(film)
+        done();
+      })
+    })
   })
 });
 

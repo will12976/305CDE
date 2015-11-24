@@ -57,6 +57,8 @@ server.get('/films', function (req, res){ //Start of getting a request back from
   films.search(searchFilm, function(data){
     console.log('/////////////////////////////////////////////////////////////////////////////')
     const hold = data.response.data//This is the JSON data of the film 
+    //Although I could add mongo.addList into my films.js module. The way to have a console.log finishing the storing and searching of the film
+    //Is to have it in the index module, so it tells when the search has ended. This is more user-focused. 
     mongo.addList(hold, function(data) {
       console.log('added '+data)
       console.log('Movie Details stored in Database')
@@ -76,6 +78,9 @@ server.get('/maps', function (req, res){ //Start of getting a request back from 
   maps.search(searchPlace, function(data){
     console.log('/////////////////////////////////////////////////////////////////////////////')
     const hold = data.response.data//This is the JSON data of the film 
+    //The same goes for my maps API, I could have used mongo.addList in my maps.js module.
+    //However, I wanted to have a 'END OF SEARCH' part to tell the users that it has ended.
+    //I will include the mongo.addList in the modules when testing. 
     mongo.addList(hold, function(data) {
       console.log('added '+data)
       console.log('Address Details stored in Database')
