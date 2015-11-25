@@ -32,7 +32,7 @@ exports.addList = function(data, callback) {
       if (err) {
         callback('error: '+err)
       }
-      callback('added: '+data)
+      callback(data)
     
   })
   
@@ -56,7 +56,7 @@ exports.getById = function(id, callback) {
   /* the 'find' property function can take a second 'filter' parameter. */
   List.find({_id: id}, function(err, data) { //This finds the section containing _id
     if (err) {
-      callback('error: '+err)
+      callback(err)
     }
     callback(data)
   })
@@ -65,7 +65,7 @@ exports.clear = function(callback) {
   /* the 'remove()' function removes any document matching the supplied criteria. */
   List.remove({}, function(err)  {
     if (err) {
-      callback('error: '+err)
+      callback('error!')
     }
     callback('lists removed')
   })

@@ -19,7 +19,7 @@ describe("Clears the list from other tests", function(){
 // First describe goes through the tests that works - achieves what it is asking.
 // It first checks if the status code is 200 (OK!) - Depends on the request URL.
 // It then checks if I can extract the data so it only prints out 
-describe("Using /GET to retrieve data from a third-party API", function() {
+describe("Using /GET to retrieve film data from the third-party API", function() {
   it("returns status code 200 when sending a /GET request", function(done) {
     //Unlike index.js this testing will use an already made url request to third-party api.
     request.get(url, function(error, response, body) {
@@ -45,6 +45,7 @@ describe("Using /GET to retrieve data from a third-party API", function() {
     
   })
   
+  //This test stores the data about the Year of the film into MongoDB
   it("should store the returned data into MongoDB", function(done){
     request.get(url, function(error, response, body){
       var conversion = JSON.parse(body)

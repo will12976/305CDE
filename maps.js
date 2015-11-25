@@ -1,9 +1,6 @@
 //Geocoding via Google Maps API http://maps.googleapis.com/maps/api/geocode/output?parameters
+//output can be in JSON or XML format, parameters are the various types of data we can collect, in this case, address.
 var request = require('request')
-
-
-//http://www.myapifilms.com/imdb?title=Jaws
-//This link above avoids having to use a API Code
 
 exports.search = function(query, callback) {
     

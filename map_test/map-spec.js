@@ -49,6 +49,7 @@ describe("Using /GET to retrieve map data from the third-party API", function() 
           var maps = change.results.map(function(element){
               return {'Address': element.formatted_address}
           })
+          //This is since I can't look up the ID's as they are all unique, hopefully I can find this out on Wednesday
           mongo.addList(maps, function(data){
               expect(data).not.toBe(maps)
               done();
