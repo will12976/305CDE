@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for workspace/film_test/film-spec.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">all files</a> / <a href="index.html">workspace/film_test/</a> film-spec.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">9.52% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>4/42</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/0</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/19</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">9.52% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>4/42</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">var request = require('request');
+var mongo = require('../mongo.js')
+var url = 'http://www.myapifilms.com/imdb?title=Jaws'
+&nbsp;
+//SETUP
+describe("Clears the list from other tests", <span class="fstat-no" title="function not covered" >function(){</span>
+<span class="cstat-no" title="statement not covered" >  it("should have no elements in the list before testing", <span class="fstat-no" title="function not covered" >function(done){</span></span>
+    
+<span class="cstat-no" title="statement not covered" >    mongo.clear(<span class="fstat-no" title="function not covered" >function(result){</span></span>
+      
+<span class="cstat-no" title="statement not covered" >      expect(result).toEqual('lists removed')</span>
+<span class="cstat-no" title="statement not covered" >      done();</span>
+      
+    });
+  })
+})
+//PASS TESTING
+&nbsp;
+// First describe goes through the tests that works - achieves what it is asking.
+// It first checks if the status code is 200 (OK!) - Depends on the request URL.
+// It then checks if I can extract the data so it only prints out 
+<span class="cstat-no" title="statement not covered" >describe("Using /GET to retrieve film data from the third-party API", <span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >  it("returns status code 200 when sending a /GET request", <span class="fstat-no" title="function not covered" >function(done) {</span></span>
+    //Unlike index.js this testing will use an already made url request to third-party api.
+<span class="cstat-no" title="statement not covered" >    request.get(url, <span class="fstat-no" title="function not covered" >function(error, response, body) {</span></span>
+<span class="cstat-no" title="statement not covered" >      expect(response.statusCode).toBe(200);</span>
+<span class="cstat-no" title="statement not covered" >      console.log(response.statusCode)</span>
+<span class="cstat-no" title="statement not covered" >      done(); </span>// If the test passes, it runs the done method, marking it as passed.
+    });
+  });
+  
+  // This test checks whether I can collect just the title data of Jaws.
+  
+<span class="cstat-no" title="statement not covered" >  it("returns only the year data for a film from the request using /GET", <span class="fstat-no" title="function not covered" >function(done){</span></span>
+<span class="cstat-no" title="statement not covered" >    request.get(url, <span class="fstat-no" title="function not covered" >function(error, response, body){</span></span>
+<span class="cstat-no" title="statement not covered" >      var conversion = JSON.parse(body)</span>
+      //I still map the parsed body, and only collect the title element
+<span class="cstat-no" title="statement not covered" >      var film = conversion.map(<span class="fstat-no" title="function not covered" >function(element){</span></span>
+<span class="cstat-no" title="statement not covered" >        return {'Year': element.year}</span>
+      })
+      // console.log(film)  -- Debugging
+<span class="cstat-no" title="statement not covered" >      expect(film).toEqual([ { Year : '1975' } ]) </span>//I check if the data returned is equal to the data for Jaws.
+<span class="cstat-no" title="statement not covered" >      done(); </span>// If the test passes, it runs the done method
+    })
+    
+  })
+  
+  //This test stores the data about the Year of the film into MongoDB
+<span class="cstat-no" title="statement not covered" >  it("should store the returned data into MongoDB", <span class="fstat-no" title="function not covered" >function(done){</span></span>
+<span class="cstat-no" title="statement not covered" >    request.get(url, <span class="fstat-no" title="function not covered" >function(error, response, body){</span></span>
+<span class="cstat-no" title="statement not covered" >      var conversion = JSON.parse(body)</span>
+<span class="cstat-no" title="statement not covered" >      var film = conversion.map(<span class="fstat-no" title="function not covered" >function(element){</span></span>
+<span class="cstat-no" title="statement not covered" >        return {'Year': element.year}</span>
+      })
+      //Since I can't look up the ID's as they're all unique, I am checking if the data that I have passed onto the database
+      //isn't just returning back, so you will know that something has occurred. 
+      //I might know this on Wednesday, this links to the problem from mongo-spec.js
+<span class="cstat-no" title="statement not covered" >      mongo.addList(film, <span class="fstat-no" title="function not covered" >function(data){</span></span>
+<span class="cstat-no" title="statement not covered" >        expect(data).not.toBe(film)</span>
+<span class="cstat-no" title="statement not covered" >        done();</span>
+      })
+    })
+  })
+});
+&nbsp;
+&nbsp;
+//FAIL TESTING 
+&nbsp;
+//This is testing the same thing, but is checking if the status code is 201.
+//This uses the same url as before, but this is checking whether the testing is checking for this correctly. 
+&nbsp;
+<span class="cstat-no" title="statement not covered" >describe("Here are the tests that failed", <span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >  it("should return a status code of 201", <span class="fstat-no" title="function not covered" >function(done) {</span></span>
+<span class="cstat-no" title="statement not covered" >    request.get(url, <span class="fstat-no" title="function not covered" >function(error, response, body) {</span></span>
+<span class="cstat-no" title="statement not covered" >      expect(response.statusCode).toBe(201);</span>
+      //Console.log to check what I am getting back
+<span class="cstat-no" title="statement not covered" >      done();</span>
+    });
+  });
+  
+<span class="cstat-no" title="statement not covered" >  it("returns the title data from the request", <span class="fstat-no" title="function not covered" >function(done){</span></span>
+<span class="cstat-no" title="statement not covered" >    request.get(url, <span class="fstat-no" title="function not covered" >function(error, response, body){</span></span>
+<span class="cstat-no" title="statement not covered" >      var conversion = JSON.parse(body)</span>
+<span class="cstat-no" title="statement not covered" >      var film = conversion.map(<span class="fstat-no" title="function not covered" >function(element){</span></span>
+<span class="cstat-no" title="statement not covered" >        return {'Year': element.year}</span>
+      })
+<span class="cstat-no" title="statement not covered" >      console.log(film)</span>
+<span class="cstat-no" title="statement not covered" >      expect(film).toEqual([ { Year : '1985' } ])</span>
+<span class="cstat-no" title="statement not covered" >      done();</span>
+    })
+    
+  })
+});
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Nov 26 2015 21:00:15 GMT+0000 (UTC)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>
