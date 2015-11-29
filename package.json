@@ -4,16 +4,18 @@
   "description": "Films and Maps API",
   "main": "index.js",
   "dependencies": {
+    "bcrypt": "^0.8.5",
     "istanbul": "^0.4.0",
-    "jasmine-node": "^1.14.5",
     "jasmine": "^2.3.2",
+    "jasmine-node": "^1.14.5",
     "mongoose": "^4.2.5",
+    "node-persist": "0.0.8",
     "request": "^2.65.0",
     "restify": "^4.0.3"
   },
   "devDependencies": {},
   "scripts": {
-    "test": "jasmine-node mongo_test --color --verbose --autotest --watch .", "jasmine-node film_test --color --verbose --autotest --watch .", "jasmine-node map_test --color --verbose --autotest --watch ." 
+    "test": "jasmine-node mongo_test --color --verbose --autotest --watch .", "jasmine-node film_test --color --verbose --autotest --watch .", "jasmine-node map_test --color --verbose --autotest --watch ."
     "coverage": "istanbul cover -x **map_test/** -x **index.js** --include-all-sources jasmine-node map_test"
   },
   "repository": {
