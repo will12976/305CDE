@@ -37,6 +37,7 @@ exports.getAccount = function(request, callback) {
 	/* we can look up the supplied username to see if the account exists. */
 	if (storage.getItemSync(username) === undefined) {
 		callback(new Error('account '+username+' does not exist'))
+		console.log('Authentification failed - '+username+' does not exist')
 	}
 	var account = storage.getItemSync(username)
 	const password = request.authorization.basic.password
@@ -48,3 +49,5 @@ exports.getAccount = function(request, callback) {
 	const data = {username: username}
 	callback(null, data)
 }
+
+

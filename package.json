@@ -15,7 +15,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "jasmine-node mongo_test --color --verbose --autotest --watch .", "jasmine-node film_test --color --verbose --autotest --watch .", "jasmine-node map_test --color --verbose --autotest --watch ."
+    "test": "jasmine-node mongo_test --color --verbose --autotest --watch .", "jasmine-node film_test --color --verbose --autotest --watch .", "jasmine-node map_test --color --verbose --autotest --watch .", "jasmine-node auth_test --color --verbose --autotest --watch ."
     "coverage": "istanbul cover -x **map_test/** -x **index.js** --include-all-sources jasmine-node map_test"
   },
   "repository": {

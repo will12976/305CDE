@@ -71,7 +71,7 @@ server.get('/films', function (req, res){ //Start of getting a request back from
             console.log('/////////////////////////////////////////////////////////////////////////////')
             console.log('Welcome back ' + user + '!')
             console.log('added '+data)
-            console.log('Address Details stored in Database')
+            console.log('Film Details stored in Database')
             console.log('//////////////////////// END OF SEARCH //////////////////////////////////////')
           })        
          
