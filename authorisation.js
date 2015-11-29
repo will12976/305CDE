@@ -28,7 +28,7 @@ exports.addAccount = function(request, callback) {
 
 /* this function checks the validity of a supplied username and password. */
 exports.getAccount = function(request, callback) {
-	console.log(request.authorization)
+	console.log("Verifying account with user ...  :  " + request.authorization.basic.username)
 	/* does the request include basic authorization. */
 	if (request.authorization == undefined || request.authorization.scheme !== 'Basic') {
 		callback(new Error('basic authorization header missing'))
@@ -36,11 +36,11 @@ exports.getAccount = function(request, callback) {
 	const username = request.authorization.basic.username
 	/* we can look up the supplied username to see if the account exists. */
 	if (storage.getItemSync(username) === undefined) {
-		callback(new Error('account '+username+' does not exist exists'))
+		callback(new Error('account '+username+' does not exist'))
 	}
 	var account = storage.getItemSync(username)
 	const password = request.authorization.basic.password
-	console.log(password+' : '+account.hash)
+	console.log("Checking if correct password...  :  "+account.hash)
 	/* we compare the supplied password to the account hash to see if it is correct. */
 	if (!bcrypt.compareSync(password, account.hash)) {
 		callback(new Error('invalid password'))

@@ -18,7 +18,7 @@ exports.search = function(query, callback) {
         console.log(typeof body)
         const json = JSON.parse(body)
         const map = json.results.map(function(element) {
-            return {'Address': element.formatted_address, 'Location Type': element.geometry.location_type,'Location': element.geometry.location, 'Place ID':element.place_id}
+            return {'Address': element.formatted_address, 'Location Type': element.geometry.location_type,'Lat': element.geometry.location.lat, 'Lng': element.geometry.location.lng, 'Place ID':element.place_id}
         })
         console.log(map)
         callback({code:200, response:{status:'success', message: 'Found the Address! '+query, data:map}})
