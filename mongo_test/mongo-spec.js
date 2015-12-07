@@ -18,6 +18,7 @@ describe("Checking whether my database methods are working correctly", function(
     
     });
   });
+
   
   //My second test then checks whether the list has been cleared. It should return an empty array [].
   //I will be testing the getAll method from mongo.js
@@ -82,7 +83,6 @@ describe("Here are the tests that didn't make it", function(){
     request.get(url, function(error, response, body) {
       var conversion = JSON.parse(body)
       mongo.addList(conversion, function(data){
-        var dataId = data._id
         var wrong = '5654d400c21d33a930f47c4e'
         //What I learn is, sending an incorrect getById request, will return an empty array []
         //So I am searching for it to not equal to this empty array.

@@ -48,10 +48,7 @@ describe("Using /GET to retrieve film data from the third-party API", function()
   //This test stores the data about the Year of the film into MongoDB
   it("should store the returned data into MongoDB", function(done){
     request.get(url, function(error, response, body){
-      var conversion = JSON.parse(body)
-      var film = conversion.map(function(element){
-        return {'Year': element.year}
-      })
+      var conversion = JSON
       //Since I can't look up the ID's as they're all unique, I am checking if the data that I have passed onto the database
       //isn't just returning back, so you will know that something has occurred. 
       //I might know this on Wednesday, this links to the problem from mongo-spec.js

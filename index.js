@@ -56,27 +56,17 @@ server.get('/films', function (req, res){ //Start of getting a request back from
   const searchFilm = req.query.title
   console.log('films='+searchFilm)
   films.search(searchFilm, function(data){
-    console.log('///////////////////// AUTHENTICATING ACCOUNT ////////////////////////////')
+    //console.log('///////////////////// AUTHENTICATING ACCOUNT ////////////////////////////')
     const hold = data.response.data//This is the JSON data of the film 
-    authorisation.getAccount(req, function(err, data) {
-
-      res.setHeader('content-type', 'application/json')
-        if (err) {
-          res.send(401, {status: 'error', 'server_message': err.message, database_message: 'This film data has NOT been added to the database', data: hold })
-          console.log('//////////////////////// END OF SEARCH //////////////////////////////////////')
-        } else {
-          res.send(200, {status: 'success', message: 'Account Authenticated. Welcome back ' + data.username + '!', database_message: 'This film data has been added to the database!', data: hold})
-          const user = data.username;
-          mongo.addList(hold, function(data) {
-            console.log('/////////////////////////////////////////////////////////////////////////////')
-            console.log('Welcome back ' + user + '!')
-            console.log('added '+data)
-            console.log('Film Details stored in Database')
-            console.log('//////////////////////// END OF SEARCH //////////////////////////////////////')
-          })        
-         
-       }
-     })
+    
+    mongo.addList(hold, function(data) {
+      console.log('/////////////////////////////////////////////////////////////////////////////')
+            //console.log('Welcome back ' + user + '!')
+            //console.log('added '+data)
+            //console.log('Address Details stored in Database')
+            //console.log('//////////////////////// END OF SEARCH //////////////////////////////////////')
+    }) 
+          
     res.setHeader('content-type', 'application/json') // The results that come back, will return as JSON text
     res.send(data.code, data.response);
     res.end();
@@ -91,33 +81,32 @@ server.get('/maps', function (req, res){ //Start of getting a request back from 
   maps.search(searchPlace, function(data){
     console.log('///////////////////// AUTHENTICATING ACCOUNT ////////////////////////////')
     const hold = data.response.data
-    
     //This is the JSON data of the film 
     //The same goes for my maps API, I could have used mongo.addList in my maps.js module.
     //However, I wanted to have a 'END OF SEARCH' part to tell the users that it has ended.
     //I will include the mongo.addList in the modules when testing. 
-    authorisation.getAccount(req, function(err, data) {
+    //authorisation.getAccount(req, function(err, data) {
 
-      res.setHeader('content-type', 'application/json')
-        if (err) {
-          res.send(401, {status: 'error', 'server_message': err.message, database_message: 'This map data has NOT been added to the database', data: hold })
-          console.log('//////////////////////// END OF SEARCH //////////////////////////////////////')
-        } else {
-          res.send(200, {status: 'success', message: 'Account Authenticated. Welcome back ' + data.username + '!', database_message: 'This map data has been added to the database!', data: hold})
-          const user = data.username;
-          mongo.addList(hold, function(data) {
-            console.log('/////////////////////////////////////////////////////////////////////////////')
-            console.log('Welcome back ' + user + '!')
-            console.log('added '+data)
-            console.log('Address Details stored in Database')
-            console.log('//////////////////////// END OF SEARCH //////////////////////////////////////')
-          })        
+    //res.setHeader('content-type', 'application/json')
+    //if (err) {
+      //res.send(401, {status: 'error', 'server_message': err.message, database_message: 'This map data has NOT been added to the database', data: hold })
+          //console.log('//////////////////////// END OF SEARCH //////////////////////////////////////')
+        //} else {
+          //res.send(200, {status: 'success', message: 'Account Authenticated. Welcome back ' + data.username + '!', database_message: 'This map data has been added to the database!', data: hold})
+          //const user = data.username;
+          //mongo.addList(hold, function(data) {
+            //console.log('/////////////////////////////////////////////////////////////////////////////')
+            //console.log('Welcome back ' + user + '!')
+            //console.log('added '+data)
+            //console.log('Address Details stored in Database')
+            //console.log('//////////////////////// END OF SEARCH //////////////////////////////////////')
+          //})        
          
-       }
-     })
+       //}
+     //})
 
     res.setHeader('content-type', 'application/json') // The results that come back, will return as JSON text
-    res.send({data: data})
+    res.send(data.code, data.response)
     res.end();
   })
 });

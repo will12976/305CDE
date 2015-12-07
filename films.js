@@ -10,7 +10,7 @@ exports.search = function(query, callback) {
         callback({code: 400, response:{status:'error', message:'missing query - enter correct parameters', message1: 'Try entering a postcode'}})
     }
     const url = 'http://www.myapifilms.com/imdb'
-    const query_string = {title: query}
+    const query_string = {title: query, limit: 5}
     console.log(query_string);
     request.get({url:url, qs: query_string}, function(err, res, body){
         if(err){
@@ -19,7 +19,7 @@ exports.search = function(query, callback) {
         console.log(typeof body)
         const json = JSON.parse(body)
         const film = json.map(function(element) {
-            return {'Title': element.title,'Year of Release':element.year, 'Genre':element.genres, 'Directors': element.directors, 'Rated':element.rated, 'Run Time': element.runtime, 'Description': element.simplePlot}
+            return {'title': element.title,'year':element.year, 'genre':element.genres, 'directors': element.directors, 'rated':element.rated, 'time': element.runtime, 'description': element.simplePlot, 'poster': element.urlPoster, 'plot': element.plot, 'rating': element.rating, 'id': element.idIMDB, 'metascore': element.metascore }
         })
         
         console.log(film)

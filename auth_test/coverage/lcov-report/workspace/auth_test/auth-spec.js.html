@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for workspace/auth_test/auth-spec.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">all files</a> / <a href="index.html">workspace/auth_test/</a> auth-spec.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>34/34</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/0</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>6/6</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>34/34</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">var auth = require('../authorisation.js')
+var storage = require('node-persist');
+var bcrypt = require('bcrypt')
+&nbsp;
+//Since to send a request with a username and password, I would need to use Postman REST Client
+//But as it runs a test, it cannot do this. 
+//In this test I will use an example username and password.
+//But it will still deliver the same results.
+&nbsp;
+//SETUP
+describe("Setting up my test for the authorisation module", function(){
+    it("Should remove any node-persist storage, and should return empty", function(done){
+        console.log('hello')
+        //Nice simple method that clears each key in the storage
+        storage.clearSync();
+        //node-persist has a .length function that returns the number of keys in the storage
+        //Since I cleared it, it should equal to 0.
+        expect(storage.length(storage)).toBe(0)
+        console.log('Number of keys : ' + storage.length(storage))
+        done();
+    })
+})
+&nbsp;
+//TESTING - PASSED
+&nbsp;
+describe("Using a premade username + password, this should be stored whereas the password is encrypted", function(){
+    it("Length of storage shouldn't be 0, and when retrieving data it should be undefined", function(done){
+        //Manually adding a username and password
+        const username = 'test123'
+        const password = 'test321'
+        
+        const salt = bcrypt.genSaltSync(10)
+        const hash = bcrypt.hashSync(password,salt)
+        const account = {username: username, password: password, hash: hash}
+        //setItem has the key parameter and then the value parameter.
+        storage.setItem(username, account)
+        //Since I know the key parameter contain the data about the account details
+        //If it doesn't return anything, it will be undefined.
+        expect(storage.length(storage)).toBe(1)
+        console.log('Number of keys : '+storage.length(storage))
+        expect(storage.getItemSync(username)).not.toBe(undefined)
+        done();
+        
+    })
+})
+&nbsp;
+//TESTING - FAILED
+&nbsp;
+describe("Using a premade username + password, this should be stored whereas the password is encrypted", function(){
+    it("Length of storage shouldn't be 0, and when retrieving data it should be undefined", function(done){
+        //Manually adding a username and password
+        const username = 'test123'
+        const password = 'test321'
+        
+        const salt = bcrypt.genSaltSync(10)
+        const hash = bcrypt.hashSync(password,salt)
+        const account = {username: username, password: password, hash: hash}
+        //setItem has the key parameter and then the value parameter.
+        storage.setItem(username, account)
+        //Since I know the key parameter contain the data about the account details
+        //If it doesn't return anything, it will be undefined.
+        expect(storage.length(storage)).toBe(0)
+        console.log('Number of keys : '+storage.length(storage))
+        expect(storage.getItemSync(password)).not.toBe(undefined)
+        done();
+        
+    })
+})
+&nbsp;
+&nbsp;
+//Couldn't attempt the testing of getAccount</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Dec 03 2015 10:41:39 GMT+0000 (UTC)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>
