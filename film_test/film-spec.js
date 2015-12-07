@@ -10,7 +10,6 @@ describe("Clears the list from other tests", function(){
       
       expect(result).toEqual('lists removed')
       done();
-      
     });
   })
 })
